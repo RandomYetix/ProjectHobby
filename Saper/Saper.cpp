@@ -128,7 +128,9 @@ void zero(int size, char **tab, char **tab_spr, int xo, int yo) {
 	tab_spr[xo][yo] = tab[xo][yo];
 	if (xo > 0) {
 		if (yo > 0) {
-			tab_spr[xo - 1][yo - 1] = tab[xo - 1][yo - 1];
+			if (tab[xo - 1][yo - 1] != tab_spr[xo - 1][yo - 1]);
+			if (tab[xo - 1][yo - 1] == '0') zero(size, tab, tab_spr, xo - 1, yo - 1);
+			else tab_spr[xo - 1][yo - 1] = tab[xo - 1][yo - 1];
 		}
 		if (yo < size - 1) {
 			tab_spr[xo - 1][yo + 1] = tab[xo - 1][yo + 1];
